@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemáticas 🚀</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.agenciasinc.es/var/ezwebin_site/storage/images/_aliases/img_1col/noticias/el-libro-blanco-de-las-matematicas-propone-64-medidas-para-impulsar-esta-ciencia-en-espana/8402718-6-esl-MX/El-Libro-Blanco-de-las-Matematicas-propone-64-medidas-para-impulsar-esta-ciencia-en-Espana.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #002fff;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #FFD700; /* Color dorado */
+        }
+
+        section {
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #FFD700; /* Color dorado */
+            font-size: 2.5em;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
+        }
+
+        .quiz-container {
+            text-align: center;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option {
+            background-color: #FFD700;
+            color: black;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 200px;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #FFC107; /* Color dorado claro */
+        }
+
+        .result {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #FFD700; /* Color dorado */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #FFD700;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #FFD700; /* Color dorado */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Matemáticas 🚀</h1>
+    </header>
+
+    <section id="introSection">
+        <h2>Introducción a las Sucesiones</h2>
+        <p class="intro">
+            En matemáticas, una <strong>sucesión aritmética</strong> es una secuencia de números en la que la diferencia entre términos consecutivos es constante. La fórmula general para el enésimo término de una sucesión aritmética se expresa como:
+            <br>
+            a<sub>n</sub> = a<sub>1</sub> + (n - 1) * d
+            <br>
+            donde a<sub>1</sub> es el primer término, n es el número de términos y d es la diferencia común.
+            <br><br>
+            Una <strong>sucesión geométrica</strong>, por otro lado, es una secuencia de números en la que cada término se obtiene multiplicando el anterior por una constante llamada razón. La fórmula general para el enésimo término de una sucesión geométrica es:
+            <br>
+            a<sub>n</sub> = a<sub>1</sub> * r<sup>(n - 1)</sup>
+            <br>
+            donde a<sub>1</sub> es el primer término, n es el número de términos y r es la razón.
+        </p>
+        <button id="startQuizButton">Iniciar Quiz</button>
+    </section>
+
+    <section id="quizSection" class="quiz-container hidden">
+        <h2 id="levelTitle">Nivel 1</h2>
+        <div id="question" class="question"></div>
+        <div class="options" id="options"></div>
+        <div id="result" class="result hidden"></div>
+        <div id="explanation" class="explanation hidden"></div>
+        <button id="nextButton" class="hidden">Siguiente Pregunta</button>
+    </section>
+
+    <footer>
+        <p>© 2024 Quiz de Sucesiones Matemáticas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                question: "¿Cuál es el siguiente término de la sucesión aritmética 2, 4, 6, 8?",
+                options: ["9", "10", "11", "12"],
+                answer: 1,
+                explanation: "La sucesión es aritmética, con una diferencia común (d) de 2. Se puede expresar como: a<sub>n</sub> = a<sub>1</sub> + (n-1) * d, donde a<sub>1</sub> es el primer término (2). Por lo tanto, a<sub>5</sub> = 2 + (5-1) * 2 = 10."
+            },
+            {
+                question: "En una sucesión geométrica, si el primer término es 3 y la razón es 2, ¿cuál es el tercer término?",
+                options: ["6", "12", "24", "9"],
+                answer: 2,
+                explanation: "La sucesión geométrica se expresa como: a<sub>n</sub> = a<sub>1</sub> * r<sup>(n-1)</sup>, donde a<sub>1</sub> es el primer término (3) y r es la razón (2). Por lo tanto, a<sub>3</sub> = 3 * 2<sup>(3-1)</sup> = 3 * 4 = 12."
+            },
+            {
+                question: "¿Cuál es la suma de los primeros 5 términos de la sucesión aritmética 1, 3, 5, 7, 9?",
+                options: ["25", "20", "15", "30"],
+                answer: 0,
+                explanation: "La suma de los primeros n términos de una sucesión aritmética se calcula como: S<sub>n</sub> = n/2 * (a<sub>1</sub> + a<sub>n</sub>). Aquí, S<sub>5</sub> = 5/2 * (1 + 9) = 5/2 * 10 = 25."
+            },
+            {
+                question: "Si en una sucesión geométrica el primer término es 5 y la razón es 3, ¿cuál es el cuarto término?",
+                options: ["45", "135", "15", "81"],
+                answer: 1,
+                explanation: "Usamos la fórmula de sucesiones geométricas: a<sub>n</sub> = a<sub>1</sub> * r<sup>(n-1)</sup>. Por lo tanto, a<sub>4</sub> = 5 * 3<sup>(4-1)</sup> = 5 * 27 = 135."
+            },
+            {
+                question: "¿Cuál es el término general de la sucesión aritmética 5, 10, 15, ...?",
+                options: ["5n", "10n", "15n", "n + 5"],
+                answer: 0,
+                explanation: "El término general de una sucesión aritmética se expresa como: a<sub>n</sub> = a<sub>1</sub> + (n-1) * d. Aquí, a<sub>n</sub> = 5 + (n-1) * 5 = 5n."
+            }
+        ];
+
+        let currentLevel = 0;
+
+        document.getElementById('startQuizButton').addEventListener('click', () => {
+            document.getElementById('introSection').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            loadQuestion();
+        });
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentLevel];
+
+            document.getElementById('levelTitle').innerText = `Nivel ${currentLevel + 1}`;
+            document.getElementById('question').innerText = currentQuestion.question;
+
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.className = 'option';
+                button.onclick = () => checkAnswer(index);
+                optionsElement.appendChild(button);
+            });
+
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('explanation').classList.add('hidden');
+            document.getElementById('nextButton').classList.add('hidden');
+        }
+
+        function checkAnswer(selectedIndex) {
+            const currentQuestion = questions[currentLevel];
+            const resultElement = document.getElementById('result');
+            const explanationElement = document.getElementById('explanation');
+            const nextButton = document.getElementById('nextButton');
+
+            if (selectedIndex === currentQuestion.answer) {
+                resultElement.innerText = "¡Respuesta Correcta!";
+            } else {
+                resultElement.innerText = "Respuesta Incorrecta. La respuesta correcta es: " + currentQuestion.options[currentQuestion.answer];
+            }
+
+            explanationElement.innerHTML = currentQuestion.explanation;
+            resultElement.classList.remove('hidden');
+            explanationElement.classList.remove('hidden');
+            nextButton.classList.remove('hidden');
+        }
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            currentLevel++;
+            if (currentLevel < questions.length) {
+                loadQuestion();
+            } else {
+                document.getElementById('quizSection').innerHTML = "<h2>¡Has completado el quiz!</h2><p>Gracias por participar.</p>";
+            }
+        });
+
+        loadQuestion();
+    </script>
+</body>
+</html>
